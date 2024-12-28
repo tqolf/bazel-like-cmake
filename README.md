@@ -19,7 +19,7 @@ cmake .. && make -j`nproc` && make test
 - Example:
   ```cmake
   cc_libray(
-      NAME mylib
+      mylib
       SOURCES **.cc
       HEADERS **.h *.hpp
       INCLUDES include/
@@ -29,7 +29,7 @@ cmake .. && make -j`nproc` && make test
   )
 
   cc_test(
-    NAME mytest
+    mytest
     SOURCES **.cc
     DEPENDENCIES mylib Boost:system,unit_test_framework
   )
@@ -37,7 +37,7 @@ cmake .. && make -j`nproc` && make test
 
 - General arguments
   ```markdown
-  NAME: target name, it will be installed to `<CMAKE_INSTALL_PREFIX>/lib/`
+  target name, it will be installed to `<CMAKE_INSTALL_PREFIX>/lib/`
     For library, both shared and static libraries will be built and installed defautly. shared only if set SHARED to ON, OFF for static only library.
 
   INCLUDES: Include Directories, all will be installed to `<CMAKE_INSTALL_PREFIX>/include/`
@@ -71,4 +71,4 @@ cmake .. && make -j`nproc` && make test
   ```
 
 - Package manager
-  For non-local installed packages nor cmake target, it's good choice to use [CPM.cmake](https://github.com/cpm-cmake/CPM.cmake.git) as package manager.
+  cc_import, it's googd choice than [CPM.cmake](https://github.com/cpm-cmake/CPM.cmake.git) which cann't support neither local package nor non-cmake package
